@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+gdb.client.commands=set mem inaccessible-by-default off
+gdb.client.executable=${cross_prefix}gdb${cross_suffix}
+gdb.client.other=
+gdb.pyocd.doDebugInRam=false
+gdb.pyocd.doInitialReset=true
+gdb.pyocd.doPreRunReset=true
+gdb.pyocd.enableSemihosting=true
+gdb.pyocd.init.other=
+gdb.pyocd.initialReset.type=init
+gdb.pyocd.preRun.other=
+gdb.pyocd.preRunReset.type=halt
+gdb.server.doStart=true
+gdb.server.executable=${pyocd_path}/${pyocd_executable}
+gdb.server.other=
