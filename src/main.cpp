@@ -42,7 +42,7 @@ static void Error_Handler(void);
 static void SystemClock_Config(void);
 // Sample pragmas to cope with warnings. Please note the related line at
 // the end of this function, used to pop the compiler diagnostics status.
-
+// i'm use it.
 
 int main(void)
 {
