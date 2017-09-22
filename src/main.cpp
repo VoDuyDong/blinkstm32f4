@@ -65,18 +65,18 @@ int main(void)
 	while (1)
     {
        // Add your code here.
-//	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-//	  HAL_Delay(1000);
-//	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
-//	  HAL_Delay(1000);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-	HAL_Delay(250);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
-	HAL_Delay(250);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-	HAL_Delay(250);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
-	HAL_Delay(250);
+	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+	  HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
+	  HAL_Delay(1000);
+//	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+//	HAL_Delay(250);
+//	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+//	HAL_Delay(250);
+//	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+//	HAL_Delay(250);
+//	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
+//	HAL_Delay(250);
     }
 }
 

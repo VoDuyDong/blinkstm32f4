@@ -139,8 +139,8 @@ Discarded input sections
                 0x0000000000000000      0x13c ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .text.HAL_GPIO_ReadPin
                 0x0000000000000000        0xc ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
- .text.HAL_GPIO_WritePin
-                0x0000000000000000        0xa ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+ .text.HAL_GPIO_TogglePin
+                0x0000000000000000        0x8 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .text.HAL_GPIO_LockPin
                 0x0000000000000000       0x2a ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
  .text.HAL_GPIO_EXTI_Callback
@@ -555,10 +555,10 @@ END GROUP
 
 .inits          0x00000000080002bc       0x28
                 0x00000000080002bc                __data_regions_array_start = .
-                0x00000000080002bc        0x4 LONG 0x8000d3c LOADADDR (.data)
+                0x00000000080002bc        0x4 LONG 0x8000d28 LOADADDR (.data)
                 0x00000000080002c0        0x4 LONG 0x20000000 ADDR (.data)
                 0x00000000080002c4        0x4 LONG 0x2000000c (ADDR (.data) + SIZEOF (.data))
-                0x00000000080002c8        0x4 LONG 0x8000d3c LOADADDR (.data_CCMRAM)
+                0x00000000080002c8        0x4 LONG 0x8000d28 LOADADDR (.data_CCMRAM)
                 0x00000000080002cc        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x00000000080002d0        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x00000000080002d4                __data_regions_array_end = .
@@ -590,7 +590,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x00000000080002e4      0xa58
+.text           0x00000000080002e4      0xa44
  *(.text .text.*)
  .text.HAL_MspInit
                 0x00000000080002e4        0x2 ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -627,114 +627,115 @@ END GROUP
  .text.HAL_GPIO_Init
                 0x0000000008000440      0x1cc ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
                 0x0000000008000440                HAL_GPIO_Init
- .text.HAL_GPIO_TogglePin
-                0x000000000800060c        0x8 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
-                0x000000000800060c                HAL_GPIO_TogglePin
+ .text.HAL_GPIO_WritePin
+                0x000000000800060c        0xa ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+                0x000000000800060c                HAL_GPIO_WritePin
+ *fill*         0x0000000008000616        0x2 
  .text.HAL_RCC_OscConfig
-                0x0000000008000614      0x2d8 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x0000000008000614                HAL_RCC_OscConfig
+                0x0000000008000618      0x2d8 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x0000000008000618                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x00000000080008ec       0x74 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x00000000080008ec                HAL_RCC_GetSysClockFreq
+                0x00000000080008f0       0x74 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x00000000080008f0                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x0000000008000960      0x16c ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x0000000008000960                HAL_RCC_ClockConfig
- .text._exit    0x0000000008000acc        0x6 ./system/src/newlib/_exit.o
-                0x0000000008000acc                _exit
- *fill*         0x0000000008000ad2        0x2 
+                0x0000000008000964      0x16c ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x0000000008000964                HAL_RCC_ClockConfig
+ .text._exit    0x0000000008000ad0        0x6 ./system/src/newlib/_exit.o
+                0x0000000008000ad0                _exit
+ *fill*         0x0000000008000ad6        0x2 
  .text.__initialize_args
-                0x0000000008000ad4       0x10 ./system/src/newlib/_syscalls.o
-                0x0000000008000ad4                __initialize_args
+                0x0000000008000ad8       0x10 ./system/src/newlib/_syscalls.o
+                0x0000000008000ad8                __initialize_args
  .text.__initialize_hardware_early
-                0x0000000008000ae4       0x18 ./system/src/cortexm/_initialize_hardware.o
-                0x0000000008000ae4                __initialize_hardware_early
+                0x0000000008000ae8       0x18 ./system/src/cortexm/_initialize_hardware.o
+                0x0000000008000ae8                __initialize_hardware_early
  .text.__initialize_hardware
-                0x0000000008000afc        0x4 ./system/src/cortexm/_initialize_hardware.o
-                0x0000000008000afc                __initialize_hardware
+                0x0000000008000b00        0x4 ./system/src/cortexm/_initialize_hardware.o
+                0x0000000008000b00                __initialize_hardware
  .text.__reset_hardware
-                0x0000000008000b00       0x24 ./system/src/cortexm/_reset_hardware.o
-                0x0000000008000b00                __reset_hardware
+                0x0000000008000b04       0x24 ./system/src/cortexm/_reset_hardware.o
+                0x0000000008000b04                __reset_hardware
  .text.SystemInit
-                0x0000000008000b24       0x40 ./system/src/cmsis/system_stm32f4xx.o
-                0x0000000008000b24                SystemInit
+                0x0000000008000b28       0x40 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008000b28                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008000b64       0x74 ./system/src/cmsis/system_stm32f4xx.o
-                0x0000000008000b64                SystemCoreClockUpdate
+                0x0000000008000b68       0x74 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008000b68                SystemCoreClockUpdate
  .text.startup.main
-                0x0000000008000bd8      0x130 ./src/main.o
-                0x0000000008000bd8                main
+                0x0000000008000bdc      0x118 ./src/main.o
+                0x0000000008000bdc                main
  .text.NMI_Handler
-                0x0000000008000d08        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d08                NMI_Handler
+                0x0000000008000cf4        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cf4                NMI_Handler
  .text.HardFault_Handler
-                0x0000000008000d0a        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d0a                HardFault_Handler
+                0x0000000008000cf6        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cf6                HardFault_Handler
  .text.MemManage_Handler
-                0x0000000008000d0c        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d0c                MemManage_Handler
+                0x0000000008000cf8        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cf8                MemManage_Handler
  .text.BusFault_Handler
-                0x0000000008000d0e        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d0e                BusFault_Handler
+                0x0000000008000cfa        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cfa                BusFault_Handler
  .text.UsageFault_Handler
-                0x0000000008000d10        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d10                UsageFault_Handler
+                0x0000000008000cfc        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cfc                UsageFault_Handler
  .text.SVC_Handler
-                0x0000000008000d12        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d12                SVC_Handler
+                0x0000000008000cfe        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000cfe                SVC_Handler
  .text.DebugMon_Handler
-                0x0000000008000d14        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d14                DebugMon_Handler
+                0x0000000008000d00        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000d00                DebugMon_Handler
  .text.PendSV_Handler
-                0x0000000008000d16        0x2 ./src/stm32f4xx_it.o
-                0x0000000008000d16                PendSV_Handler
+                0x0000000008000d02        0x2 ./src/stm32f4xx_it.o
+                0x0000000008000d02                PendSV_Handler
  .text.SysTick_Handler
-                0x0000000008000d18        0x4 ./src/stm32f4xx_it.o
-                0x0000000008000d18                SysTick_Handler
+                0x0000000008000d04        0x4 ./src/stm32f4xx_it.o
+                0x0000000008000d04                SysTick_Handler
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.APBAHBPrescTable
-                0x0000000008000d1c       0x10 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x0000000008000d1c                APBAHBPrescTable
+                0x0000000008000d08       0x10 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x0000000008000d08                APBAHBPrescTable
  .rodata.AHBPrescTable
-                0x0000000008000d2c       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x0000000008000d2c                AHBPrescTable
+                0x0000000008000d18       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008000d18                AHBPrescTable
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0000000008000d3c        0x0 linker stubs
+ .glue_7        0x0000000008000d28        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008000d3c        0x0 linker stubs
+ .glue_7t       0x0000000008000d28        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008000d3c        0x0
- .vfp11_veneer  0x0000000008000d3c        0x0 linker stubs
+.vfp11_veneer   0x0000000008000d28        0x0
+ .vfp11_veneer  0x0000000008000d28        0x0 linker stubs
 
-.v4_bx          0x0000000008000d3c        0x0
- .v4_bx         0x0000000008000d3c        0x0 linker stubs
+.v4_bx          0x0000000008000d28        0x0
+ .v4_bx         0x0000000008000d28        0x0 linker stubs
 
-.iplt           0x0000000008000d3c        0x0
- .iplt          0x0000000008000d3c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.iplt           0x0000000008000d28        0x0
+ .iplt          0x0000000008000d28        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
-.rel.dyn        0x0000000008000d3c        0x0
- .rel.iplt      0x0000000008000d3c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.rel.dyn        0x0000000008000d28        0x0
+ .rel.iplt      0x0000000008000d28        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008000d3c                . = ALIGN (0x4)
-                0x0000000008000d3c                __exidx_start = .
+                0x0000000008000d28                . = ALIGN (0x4)
+                0x0000000008000d28                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000008000d3c                __exidx_end = .
-                0x0000000008000d3c                . = ALIGN (0x4)
-                0x0000000008000d3c                _etext = .
-                0x0000000008000d3c                __etext = .
+                0x0000000008000d28                __exidx_end = .
+                0x0000000008000d28                . = ALIGN (0x4)
+                0x0000000008000d28                _etext = .
+                0x0000000008000d28                __etext = .
 
-.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008000d3c
+.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008000d28
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000008000d3c                _sidata = LOADADDR (.data)
+                0x0000000008000d28                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000        0xc load address 0x0000000008000d3c
+.data           0x0000000020000000        0xc load address 0x0000000008000d28
  FILL mask 0xff
                 0x0000000020000000                _sdata = .
                 0x0000000020000000                __data_start__ = .
@@ -750,7 +751,7 @@ END GROUP
                 0x000000002000000c                _edata = .
                 0x000000002000000c                __data_end__ = .
 
-.igot.plt       0x000000002000000c        0x0 load address 0x0000000008000d48
+.igot.plt       0x000000002000000c        0x0 load address 0x0000000008000d34
  .igot.plt      0x000000002000000c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .bss_CCMRAM     0x0000000010000000        0x0
@@ -927,7 +928,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xb922
+.debug_info     0x0000000000000000     0xb8f8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000     0x1102 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_info    0x0000000000001102     0x168f ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -941,8 +942,8 @@ END GROUP
  .debug_info    0x00000000000080c4      0xb02 ./system/src/cortexm/exception_handlers.o
  .debug_info    0x0000000000008bc6      0xcf8 ./system/src/cmsis/system_stm32f4xx.o
  .debug_info    0x00000000000098be       0xcd ./system/src/cmsis/vectors_stm32f407xx.o
- .debug_info    0x000000000000998b     0x1619 ./src/main.o
- .debug_info    0x000000000000afa4      0x97e ./src/stm32f4xx_it.o
+ .debug_info    0x000000000000998b     0x15ef ./src/main.o
+ .debug_info    0x000000000000af7a      0x97e ./src/stm32f4xx_it.o
 
 .debug_abbrev   0x0000000000000000     0x2299
  *(.debug_abbrev)
@@ -961,7 +962,7 @@ END GROUP
  .debug_abbrev  0x0000000000001d1d      0x365 ./src/main.o
  .debug_abbrev  0x0000000000002082      0x217 ./src/stm32f4xx_it.o
 
-.debug_line     0x0000000000000000     0x1fa2
+.debug_line     0x0000000000000000     0x1f8e
  *(.debug_line)
  .debug_line    0x0000000000000000      0x345 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_line    0x0000000000000345      0x3a1 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -975,8 +976,8 @@ END GROUP
  .debug_line    0x0000000000001740      0x1b8 ./system/src/cortexm/exception_handlers.o
  .debug_line    0x00000000000018f8      0x190 ./system/src/cmsis/system_stm32f4xx.o
  .debug_line    0x0000000000001a88       0x5a ./system/src/cmsis/vectors_stm32f407xx.o
- .debug_line    0x0000000000001ae2      0x303 ./src/main.o
- .debug_line    0x0000000000001de5      0x1bd ./src/stm32f4xx_it.o
+ .debug_line    0x0000000000001ae2      0x2ef ./src/main.o
+ .debug_line    0x0000000000001dd1      0x1bd ./src/stm32f4xx_it.o
 
 .debug_frame    0x0000000000000000      0xa14
  *(.debug_frame)
@@ -995,35 +996,35 @@ END GROUP
  .debug_frame   0x000000000000094c       0x28 ./src/main.o
  .debug_frame   0x0000000000000974       0xa0 ./src/stm32f4xx_it.o
 
-.debug_str      0x0000000000000000     0x1fab
+.debug_str      0x0000000000000000     0x1fad
  *(.debug_str)
  .debug_str     0x0000000000000000      0xdac ./system/src/stm32f4-hal/stm32f4xx_hal.o
                                         0xe91 (size before relaxing)
  .debug_str     0x0000000000000dac      0x3ab ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
                                         0xff5 (size before relaxing)
- .debug_str     0x0000000000001157      0x1b6 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+ .debug_str     0x0000000000001157      0x1a8 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
                                         0x8fd (size before relaxing)
- .debug_str     0x000000000000130d      0x287 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+ .debug_str     0x00000000000012ff      0x287 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
                                         0xac8 (size before relaxing)
- .debug_str     0x0000000000001594       0x7a ./system/src/newlib/_exit.o
+ .debug_str     0x0000000000001586       0x7a ./system/src/newlib/_exit.o
                                         0x5f1 (size before relaxing)
- .debug_str     0x000000000000160e      0x1a3 ./system/src/newlib/_startup.o
+ .debug_str     0x0000000000001600      0x1a3 ./system/src/newlib/_startup.o
                                         0x359 (size before relaxing)
- .debug_str     0x00000000000017b1      0x28b ./system/src/newlib/_syscalls.o
+ .debug_str     0x00000000000017a3      0x28b ./system/src/newlib/_syscalls.o
                                         0x8b8 (size before relaxing)
- .debug_str     0x0000000000001a3c       0x5e ./system/src/cortexm/_initialize_hardware.o
+ .debug_str     0x0000000000001a2e       0x5e ./system/src/cortexm/_initialize_hardware.o
                                         0x6b3 (size before relaxing)
- .debug_str     0x0000000000001a9a       0x28 ./system/src/cortexm/_reset_hardware.o
+ .debug_str     0x0000000000001a8c       0x28 ./system/src/cortexm/_reset_hardware.o
                                         0x679 (size before relaxing)
- .debug_str     0x0000000000001ac2      0x11f ./system/src/cortexm/exception_handlers.o
+ .debug_str     0x0000000000001ab4      0x11f ./system/src/cortexm/exception_handlers.o
                                         0x6ff (size before relaxing)
- .debug_str     0x0000000000001be1       0x31 ./system/src/cmsis/system_stm32f4xx.o
+ .debug_str     0x0000000000001bd3       0x31 ./system/src/cmsis/system_stm32f4xx.o
                                         0x786 (size before relaxing)
- .debug_str     0x0000000000001c12       0x59 ./system/src/cmsis/vectors_stm32f407xx.o
+ .debug_str     0x0000000000001c04       0x59 ./system/src/cmsis/vectors_stm32f407xx.o
                                         0x1dc (size before relaxing)
- .debug_str     0x0000000000001c6b      0x32a ./src/main.o
-                                        0xbeb (size before relaxing)
- .debug_str     0x0000000000001f95       0x16 ./src/stm32f4xx_it.o
+ .debug_str     0x0000000000001c5d      0x33a ./src/main.o
+                                        0xc24 (size before relaxing)
+ .debug_str     0x0000000000001f97       0x16 ./src/stm32f4xx_it.o
                                         0x665 (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x14d9
