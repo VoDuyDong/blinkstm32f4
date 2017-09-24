@@ -64,7 +64,7 @@ int main(void)
 	HAL_GPIO_Init(GPIOD,&GPIO_InitStruction);
 	while (1)
     {
-       // Add your code here. all code your write 
+       // Add your code here.
 	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 	HAL_Delay(250);
 	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
