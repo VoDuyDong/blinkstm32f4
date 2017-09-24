@@ -1,5 +1,0 @@
-architecture=cortex-m4
-board=STM32F4DISCOVERY
-chip=stm32f40x
-eclipse.preferences.version=1
-vendor=STMicro

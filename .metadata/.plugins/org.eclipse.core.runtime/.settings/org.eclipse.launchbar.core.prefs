@@ -1,8 +1,0 @@
-LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
-LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:st-flash Release,org.eclipse.launchbar.core.descriptorType.default\:st-flash Debug,org.eclipse.launchbar.core.descriptorType.default\:Debug STM32F1,org.eclipse.launchbar.core.descriptorType.default\:PwmHalF4.elf,org.eclipse.launchbar.core.descriptorType.default\:Debug STM32F4
-eclipse.preferences.version=1
-org.eclipse.launchbar.core.descriptorType.default\:Debug\ STM32F4/activeLaunchMode=debug
-org.eclipse.launchbar.core.descriptorType.default\:st-flash\ Debug/activeLaunchMode=run
-org.eclipse.launchbar.core.descriptorType.default\:st-flash\ Release/activeLaunchMode=run
-org.eclipse.launchbar.core.descriptorType.default\:st-flash\ Release/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
