@@ -48,7 +48,7 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-blink.bin \
+blink.hex \
 
 SECONDARY_SIZE += \
 blink.siz \
@@ -65,9 +65,9 @@ blink.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-blink.bin: blink.elf
+blink.hex: blink.elf
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
-	arm-none-eabi-objcopy -O binary "blink.elf"  "blink.bin"
+	arm-none-eabi-objcopy -O ihex "blink.elf"  "blink.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
